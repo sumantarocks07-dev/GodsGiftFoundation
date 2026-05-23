@@ -1,0 +1,39 @@
+{
+  "name": "God's Gift Foundation",
+  "short_name": "God's Gift",
+  "description": "Premium rehabilitation and old age care foundation providing detoxification, meditation therapy, yoga sessions, and community healing services.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#16a34a",
+  "background_color": "#fafaf9",
+  "icons": [
+    {
+      "src": "/image/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/image/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/image/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["health", "medical"],
+  "screenshots": [
+    {
+      "src": "/screenshot1.png",
+      "sizes": "540x720",
+      "type": "image/png"
+    }
+  ]
+}

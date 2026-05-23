@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #fafaf9;
+  --foreground: #1c1c1c;
+  --primary: #16a34a;
+  --primary-light: #86efac;
+  --accent: #d4a574;
+  --accent-light: #f5deb3;
+  --glass: rgba(255, 255, 255, 0.7);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html[data-scroll-behavior="smooth"] {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background-color: #f6faf7;
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.04), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(22, 163, 74, 0.03), transparent 40%);
+  background-attachment: fixed;
+  color: #1c1c1c;
+  font-feature-settings: "rlig" 1 "calt" 1;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: 2.25rem; /* text-4xl */
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.75rem; /* text-6xl */
+  }
+}
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 4.5rem; /* text-7xl */
+  }
+}
+
+h2 {
+  font-size: 1.875rem; /* text-3xl */
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem; /* text-4xl */
+  }
+}
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 3rem; /* text-5xl */
+  }
+}
+
+h3 {
+  font-size: 1.5rem; /* text-2xl */
+}
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.875rem; /* text-3xl */
+  }
+}
+
+/* Utility Classes */
+.glass-effect {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+}
+
+.glass-effect-dark {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gradient-primary {
+  background-image: linear-gradient(to right, #22c55e, #10b981, #14b8a6);
+}
+
+.gradient-warm {
+  background-image: linear-gradient(to right, #fbbf24, #fb923c, #facc15);
+}
+
+.gradient-text {
+  background-image: linear-gradient(to right, #16a34a, #059669);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.section-padding {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.container-max {
+  max-width: 80rem; /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blur-circle {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(64px);
+  opacity: 0.2;
+}
+
+.animation-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animation-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16a34a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #15803d;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+a,
+button,
+input,
+textarea,
+select,
+.transition-interactive {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Selection styles */
+::selection {
+  background-color: #22c55e;
+  color: white;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
