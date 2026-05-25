@@ -3,9 +3,28 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import type { PanInfo } from "framer-motion";
 import { Heart, Brain, Sparkles, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
 
 export const MeditationSection = () => {
+  const sessions = [
+    {
+      title: "Meditation Session",
+      category: "Guided Wellness",
+      image: "/image/Meditationsession1.jpeg",
+    },
+    {
+      title: "Peaceful Therapy",
+      category: "Mind Restoration",
+      image: "/image/Meditationsession2.jpeg",
+    },
+    {
+      title: "Mind Relaxation",
+      category: "Deep Relief",
+      image: "/image/Meditationsession3.jpeg",
+    },
+  ];
+
   const benefits = [
     {
       icon: <Brain size={20} />,
@@ -56,9 +75,9 @@ export const MeditationSection = () => {
       setCurrentSlide((prev) => (prev + 1) % sessions.length);
     }, 4500);
     return () => clearInterval(timer);
-  }, []);
+  }, [sessions.length]);
 
-  const handleDragEnd = (event: any, info: any) => {
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const swipeThreshold = 50;
     if (info.offset.x < -swipeThreshold) {
       setCurrentSlide((prev) => (prev + 1) % sessions.length);
@@ -66,24 +85,6 @@ export const MeditationSection = () => {
       setCurrentSlide((prev) => (prev - 1 + sessions.length) % sessions.length);
     }
   };
-
-  const sessions = [
-    {
-      title: "Meditation Session",
-      category: "Guided Wellness",
-      image: "/image/Meditationsession1.jpeg",
-    },
-    {
-      title: "Peaceful Therapy",
-      category: "Mind Restoration",
-      image: "/image/Meditationsession2.jpeg",
-    },
-    {
-      title: "Mind Relaxation",
-      category: "Deep Relief",
-      image: "/image/Meditationsession3.jpeg",
-    },
-  ];
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-green-50/40 to-white pt-3 pb-16 lg:pt-6 lg:pb-24">

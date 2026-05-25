@@ -21,7 +21,7 @@ const TypewriterHeading = () => {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(50);
+  const typingSpeed = 50;
 
   useEffect(() => {
     let timer: NodeJS.Timeout;

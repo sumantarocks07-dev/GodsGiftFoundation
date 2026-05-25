@@ -45,7 +45,7 @@ export default function AboutPage() {
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <FadeIn direction="left">
-            <Card className="glass-effect p-8">
+            <Card className="p-8">
               <h2 className="text-4xl font-bold mb-4 gradient-text">
                 Our Mission
               </h2>
@@ -62,7 +62,7 @@ export default function AboutPage() {
           </FadeIn>
 
           <FadeIn direction="right">
-            <Card className="glass-effect p-8">
+            <Card className="p-8">
               <h2 className="text-4xl font-bold mb-4 gradient-text">
                 Our Vision
               </h2>
@@ -114,12 +114,12 @@ export default function AboutPage() {
           <FadeIn direction="right" className="w-full md:w-5/12 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 drop-shadow-[0_20px_40px_rgba(16,185,129,0.25)]">
               <div className="absolute inset-0 bg-emerald-400 blur-[80px] opacity-20 rounded-full mix-blend-multiply animate-pulse"></div>
-              <Image 
-                src="/images/na_logo.png" 
-                alt="Narcotics Anonymous Logo" 
-                fill 
+              <Image
+                src="/images/na_logo.png"
+                alt="Narcotics Anonymous Logo"
+                fill
                 sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-contain hover:scale-[1.03] transition-transform duration-700 ease-out z-10" 
+                className="object-contain hover:scale-[1.03] transition-transform duration-700 ease-out z-10"
               />
             </div>
           </FadeIn>
@@ -146,10 +146,10 @@ export default function AboutPage() {
                 "Serenity Prayer",
                 "Keep Coming Back",
                 "Together We Can",
-                "This to self us"
+                "This to self us",
               ].map((principle, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="group relative overflow-hidden rounded-[20px] bg-white p-5 border border-stone-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(16,185,129,0.12)] hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-emerald-400 to-green-600 transform origin-top scale-y-40 group-hover:scale-y-100 transition-transform duration-300 ease-out"></div>
@@ -170,26 +170,35 @@ export default function AboutPage() {
 
       {/* Team Section */}
       <Section>
-        <h2 className="text-4xl font-bold text-center mb-12">Our Team</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">Founders</h2>
         <StaggerContainer staggerDelay={0.2}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             {[
               {
                 role: "Founder & Director",
                 name: "Sumanta Das",
+                image: "/images/sumanta-das.png",
               },
               {
                 role: "Founder & Director",
                 name: "Puja Das",
+                image: "/images/puja-das.png",
               },
             ].map((member) => (
               <StaggerItem key={member.name}>
-                <Card className="text-center p-8">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-green-400 to-emerald-400 mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-4xl">👤</span>
+                <Card className="text-center p-8 md:p-10">
+                  <div className="relative w-full max-w-[340px] aspect-[4/5] mx-auto mb-8 overflow-hidden rounded-3xl border border-stone-200 shadow-md">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      loading={member.name === "Sumanta Das" ? "eager" : "lazy"}
+                      sizes="(max-width: 768px) 320px, 340px"
+                      className="object-cover object-top"
+                    />
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-green-600 font-semibold mb-3">
+                  <h3 className="text-3xl font-bold mb-2">{member.name}</h3>
+                  <p className="text-green-600 text-xl font-semibold mb-3">
                     {member.role}
                   </p>
                 </Card>
@@ -198,8 +207,6 @@ export default function AboutPage() {
           </div>
         </StaggerContainer>
       </Section>
-
-
 
       {/* Call to Action */}
       <Section className="text-center">

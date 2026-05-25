@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Section } from "@/components/Section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
 import { AlertCircle } from "lucide-react";
@@ -20,16 +19,27 @@ export const AwarenessSection = () => {
 
   const sliderRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const imageCount = hivImages.length;
+
+  function scrollToSlide(index: number) {
+    if (!sliderRef.current) return;
+    const width = sliderRef.current.clientWidth;
+    sliderRef.current.scrollTo({
+      left: width * index,
+      behavior: "smooth",
+    });
+    setCurrentSlide(index);
+  }
 
   // Auto-scroll every 3 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      const nextIdx = (currentSlide + 1) % hivImages.length;
+      const nextIdx = (currentSlide + 1) % imageCount;
       scrollToSlide(nextIdx);
     }, 3000);
 
     return () => clearInterval(timer);
-  }, [currentSlide]);
+  }, [currentSlide, imageCount]);
 
   const handleScroll = () => {
     if (!sliderRef.current) return;
@@ -37,33 +47,23 @@ export const AwarenessSection = () => {
     const width = sliderRef.current.clientWidth;
     if (width > 0) {
       const newIndex = Math.round(scrollLeft / width);
-      if (newIndex !== currentSlide && newIndex >= 0 && newIndex < hivImages.length) {
+      if (newIndex !== currentSlide && newIndex >= 0 && newIndex < imageCount) {
         setCurrentSlide(newIndex);
       }
     }
   };
 
-  const scrollToSlide = (index: number) => {
-    if (!sliderRef.current) return;
-    const width = sliderRef.current.clientWidth;
-    sliderRef.current.scrollTo({
-      left: width * index,
-      behavior: "smooth"
-    });
-    setCurrentSlide(index);
-  };
-
   const nextSlide = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    const nextIdx = (currentSlide + 1) % hivImages.length;
+    const nextIdx = (currentSlide + 1) % imageCount;
     scrollToSlide(nextIdx);
   };
 
   const prevSlide = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    const prevIdx = (currentSlide - 1 + hivImages.length) % hivImages.length;
+    const prevIdx = (currentSlide - 1 + imageCount) % imageCount;
     scrollToSlide(prevIdx);
   };
 

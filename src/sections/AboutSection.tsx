@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Section } from "@/components/Section";
 import {
-  FadeIn,
   StaggerContainer,
   StaggerItem,
 } from "@/components/Animations";
@@ -24,13 +23,14 @@ export const AboutSection = () => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const imageCount = images.length;
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      setCurrentImageIndex((prev) => (prev + 1) % imageCount);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [imageCount]);
 
   const features = [
     {

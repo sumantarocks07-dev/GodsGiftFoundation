@@ -1,7 +1,5 @@
 import { Section } from "@/components/Section";
 import { Card } from "@/components/Card";
-import { Button } from "@/components/Button";
-import { FadeIn } from "@/components/Animations";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

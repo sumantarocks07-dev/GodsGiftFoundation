@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import type { Variants } from "framer-motion";
+import type { PanInfo, Variants } from "framer-motion";
 import { Clock, Leaf, Sparkles } from "lucide-react";
 
 const yogaSessions = [
@@ -78,7 +78,7 @@ const YogaSessionCard = ({ session, index }: { session: typeof yogaSessions[0], 
     return () => clearInterval(timer);
   }, [isMultiImage, session.images.length]);
 
-  const handleDragEnd = (event: any, info: any) => {
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     if (!isMultiImage) return;
     const swipeThreshold = 50;
     if (info.offset.x < -swipeThreshold) {

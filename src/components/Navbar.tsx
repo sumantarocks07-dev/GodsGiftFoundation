@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -57,9 +58,12 @@ export const Navbar = () => {
   className="group flex min-w-0 items-center gap-2.5 transition-all duration-300 sm:gap-3"
 >
   <div className="flex h-[64px] w-[64px] sm:h-[76px] sm:w-[76px] flex-shrink-0 items-center justify-center transition-all duration-300">
-    <img
+    <Image
       src="/image/logo.png"
       alt="God's Gift Foundation Logo"
+      width={76}
+      height={76}
+      loading="eager"
       className={`h-full w-full object-contain transition-all duration-300 group-hover:scale-[1.05] ${
         useSolidStyle ? "brightness-0 opacity-80" : ""
       }`}
@@ -102,7 +106,7 @@ export const Navbar = () => {
             <Link
               href="/contact"
               aria-label="Contact us via WhatsApp"
-              className="px-6 py-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl  font-semibold hover:bg-white/20 hover:border-emerald-300 hover:text-emerald-600 transition-all duration-300"
+              className="rounded-full border border-emerald-200 bg-emerald-50/65 px-6 py-3 font-semibold text-emerald-700 shadow-[0_10px_24px_rgba(16,185,129,0.08)] backdrop-blur-xl transition-all duration-300 hover:border-emerald-300 hover:bg-emerald-100/75 hover:text-emerald-800"
             >
               WhatsApp
             </Link>
@@ -176,10 +180,10 @@ export const Navbar = () => {
                     href="/contact"
                     onClick={() => setIsOpen(false)}
                     aria-label="Contact us via WhatsApp"
-                    className={`w-full rounded-full border py-3 text-center font-semibold backdrop-blur-xl transition-all duration-300 hover:text-emerald-600 ${
+                    className={`w-full rounded-full border py-3 text-center font-semibold backdrop-blur-xl transition-all duration-300 ${
                       useSolidStyle
-                        ? "border-slate-200 bg-white text-slate-900 hover:bg-emerald-50"
-                        : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                        ? "border-emerald-200 bg-emerald-50 text-emerald-700 hover:border-emerald-300 hover:bg-emerald-100 hover:text-emerald-800"
+                        : "border-emerald-300/50 bg-emerald-500/15 text-emerald-100 hover:bg-emerald-500/25"
                     }`}
                   >
                     WhatsApp

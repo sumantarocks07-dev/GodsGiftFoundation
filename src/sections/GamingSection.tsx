@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Card } from "@/components/Card";
 import { Section } from "@/components/Section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
 
@@ -23,18 +22,29 @@ export const GamingSection = () => {
   const chessImages = [
     "/image/games1.png",
     "/image/games2.png",
-    "/image/games3.png"
+    "/image/games3.png",
   ];
+  const chessImageCount = chessImages.length;
+
+  function scrollToChessSlide(index: number) {
+    if (!chessSliderRef.current) return;
+    const width = chessSliderRef.current.clientWidth;
+    chessSliderRef.current.scrollTo({
+      left: width * index,
+      behavior: "smooth",
+    });
+    setChessSlide(index);
+  }
 
   // Auto scroll logic for Chess & Carrom slider
   useEffect(() => {
     const timer = setInterval(() => {
-      const nextIdx = (chessSlide + 1) % chessImages.length;
+      const nextIdx = (chessSlide + 1) % chessImageCount;
       scrollToChessSlide(nextIdx);
     }, 4000); // Slides every 4 seconds
 
     return () => clearInterval(timer);
-  }, [chessSlide]);
+  }, [chessImageCount, chessSlide]);
 
   const handleChessScroll = () => {
     if (!chessSliderRef.current) return;
@@ -42,33 +52,23 @@ export const GamingSection = () => {
     const width = chessSliderRef.current.clientWidth;
     if (width > 0) {
       const newIndex = Math.round(scrollLeft / width);
-      if (newIndex !== chessSlide && newIndex >= 0 && newIndex < chessImages.length) {
+      if (newIndex !== chessSlide && newIndex >= 0 && newIndex < chessImageCount) {
         setChessSlide(newIndex);
       }
     }
   };
 
-  const scrollToChessSlide = (index: number) => {
-    if (!chessSliderRef.current) return;
-    const width = chessSliderRef.current.clientWidth;
-    chessSliderRef.current.scrollTo({
-      left: width * index,
-      behavior: "smooth"
-    });
-    setChessSlide(index);
-  };
-
   const nextChessSlide = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    const nextIdx = (chessSlide + 1) % chessImages.length;
+    const nextIdx = (chessSlide + 1) % chessImageCount;
     scrollToChessSlide(nextIdx);
   };
 
   const prevChessSlide = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    const prevIdx = (chessSlide - 1 + chessImages.length) % chessImages.length;
+    const prevIdx = (chessSlide - 1 + chessImageCount) % chessImageCount;
     scrollToChessSlide(prevIdx);
   };
 

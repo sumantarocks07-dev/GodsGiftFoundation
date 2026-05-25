@@ -4,7 +4,6 @@ import {
   MapPin,
   Phone,
   Mail,
-  Globe,
   ChevronRight,
 } from "lucide-react";
 
@@ -66,27 +65,30 @@ export const Footer = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-32 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-          
           {/* LEFT SIDE */}
           <div>
             {/* Logo */}
             <div className="flex items-center gap-4 mb-6">
               <div className="w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] flex items-center justify-center shrink-0">
-                <img src="/image/logo.png" alt="God's Gift Foundation" className="w-full h-full object-contain" />
+                <Image
+                  src="/image/logo.png"
+                  alt="God's Gift Foundation"
+                  width={76}
+                  height={76}
+                  className="w-full h-full object-contain"
+                />
               </div>
 
               <div>
                 <h2 className="text-4xl font-extrabold leading-tight">
-                  God's Gift Foundation
+                  God&apos;s Gift Foundation
                 </h2>
 
                 <p className="text-green-400 text-sm font-medium mt-2 tracking-wide">
-                  Compassion • Recovery • Wellness
+                  Compassion | Recovery | Wellness
                 </p>
               </div>
             </div>
-
-          
 
             {/* CONTACT DETAILS */}
             <div className="mt-9 space-y-2">
@@ -108,9 +110,7 @@ export const Footer = () => {
                 </div>
 
                 <div>
-                  <p className="text-sm text-gray-400 mb-1">
-                    Phone
-                  </p>
+                  <p className="text-sm text-gray-400 mb-1">Phone</p>
 
                   <div className="space-y-1.5">
                     <a
@@ -135,9 +135,7 @@ export const Footer = () => {
                 </div>
 
                 <div>
-                  <p className="text-sm text-gray-400 mb-1">
-                    Email
-                  </p>
+                  <p className="text-sm text-gray-400 mb-1">Email</p>
 
                   <a
                     href={`https://mail.google.com/mail/?view=cm&fs=1&to=${siteConfig.contact.email}`}
@@ -198,26 +196,20 @@ export const Footer = () => {
             </h3>
 
             <div className="grid grid-cols-2 gap-6 mb-12">
-              {["Home", "About", "Services", "Contact"].map(
-                (item) => (
-                  <Link
-                    key={item}
-                    href={
-                      item === "Home"
-                        ? "/"
-                        : `/${item.toLowerCase()}`
-                    }
-                    className="group flex items-center gap-3 text-gray-300 hover:text-green-400 transition-all duration-300 text-lg"
-                  >
-                    <ChevronRight
-                      size={20}
-                      className="group-hover:translate-x-1 transition-all"
-                    />
+              {["Home", "About", "Services", "Contact"].map((item) => (
+                <Link
+                  key={item}
+                  href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                  className="group flex items-center gap-3 text-gray-300 hover:text-green-400 transition-all duration-300 text-lg"
+                >
+                  <ChevronRight
+                    size={20}
+                    className="group-hover:translate-x-1 transition-all"
+                  />
 
-                    {item}
-                  </Link>
-                )
-              )}
+                  {item}
+                </Link>
+              ))}
             </div>
 
             {/* EMERGENCY BLOCK */}
@@ -242,7 +234,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-5">
           <p className="text-gray-400 text-sm text-center md:text-left">
-            © {currentYear} God's Gift Foundation. All rights reserved.
+            Copyright {currentYear} God&apos;s Gift Foundation. All rights reserved.
           </p>
 
           <div className="flex items-center gap-8">
