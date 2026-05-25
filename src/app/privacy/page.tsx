@@ -57,7 +57,7 @@ export default function PrivacyPage() {
           <p className="text-gray-700">
             If you have questions about this Privacy Policy, please contact us at:
             <br />
-            Email: info@godsgiftfoundation.org
+            Email: godsgiftfoundation2021@gmail.com
             <br />
             Phone: +91 82402 32359 (Sumanta Das)
           </p>

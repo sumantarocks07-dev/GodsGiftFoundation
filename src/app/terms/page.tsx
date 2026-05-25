@@ -71,7 +71,7 @@ export default function TermsPage() {
           <p className="text-gray-700">
             If you have any questions about these Terms of Service, please contact us at:
             <br />
-            Email: info@godsgiftfoundation.org
+            Email: godsgiftfoundation2021@gmail.com
             <br />
             Phone: +91 82402 32359 (Sumanta Das)
           </p>
