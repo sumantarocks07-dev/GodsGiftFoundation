@@ -47,34 +47,43 @@ const careApproach = [
 
 export default function ServicesPage() {
   return (
-    <main className="pt-32 pb-16 bg-stone-50">
+    <main className="pb-16 bg-stone-50">
       {/* Hero */}
-      <Section className="relative mb-0 overflow-hidden rounded-[40px] min-h-[430px]">
-        <div className="absolute inset-0 -z-10 pointer-events-none">
+      <section className="relative mb-0 h-[320px] w-full overflow-hidden md:h-[620px]">
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src="/images/pickup-team.jpeg"
+            alt=""
+            fill
+            aria-hidden="true"
+            sizes="100vw"
+            className="scale-150 object-cover object-center blur-sm md:hidden"
+          />
           <Image
             src="/images/pickup-team.jpeg"
             alt="God's Gift Foundation team"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-contain object-top md:object-cover md:object-center"
           />
+          <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-b from-transparent to-stone-50 md:h-20" />
         </div>
-      </Section>
+      </section>
 
-      <Section className="pb-0 pt-10 text-center md:pt-14">
+      <Section className="pb-0 pt-0 text-center md:pt-4">
         <FadeIn direction="up">
-          <h1 className="mb-6 text-5xl font-bold text-stone-950 md:text-7xl">
+          <h1 className="mb-4 text-4xl font-bold text-stone-950 md:mb-6 md:text-7xl">
             Our <span className="gradient-text">Services</span>
           </h1>
-          <p className="mx-auto max-w-3xl text-2xl font-medium text-slate-800">
+          <p className="mx-auto max-w-3xl text-xl font-medium text-slate-800 md:text-2xl">
             Comprehensive programs designed for holistic healing and recovery
           </p>
         </FadeIn>
       </Section>
 
       {/* Services Grid */}
-      <Section className="mt-8 md:mt-1">
+      <Section className="mt-3 md:mt-1">
         <div className="rounded-[38px] border border-white/55 bg-white/38 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.12)] backdrop-blur-md md:p-8">
           <StaggerContainer staggerDelay={0.15}>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">

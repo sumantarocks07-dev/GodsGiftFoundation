@@ -72,16 +72,9 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
   },
   icons: {
-    icon: [
-      { url: "/image/logo.png" },
-      { url: "/image/logo.png", sizes: "192x192", type: "image/png" },
-      { url: "/image/logo.png", sizes: "512x512", type: "image/png" },
-    ],
-    shortcut: "/image/logo.png",
-    apple: [
-      { url: "/image/logo.png" },
-      { url: "/image/logo.png", sizes: "180x180", type: "image/png" },
-    ],
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   manifest: "/site.webmanifest",
 };
@@ -108,10 +101,10 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         
-        {/* High-Resolution Favicon Links */}
-        <link rel="icon" href="/image/logo.png" sizes="192x192" type="image/png" />
-        <link rel="icon" href="/image/logo.png" sizes="512x512" type="image/png" />
-        <link rel="apple-touch-icon" href="/image/logo.png" sizes="180x180" />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
         
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
