@@ -82,7 +82,7 @@ export const AboutSection = () => {
   return (
     <Section
       id="about"
-      className="relative overflow-hidden pt-16 pb-0 lg:pt-24 lg:pb-0"
+      className="relative max-w-none overflow-hidden px-0 pt-16 pb-0 lg:pt-24 lg:pb-0"
     >
       {/* PREMIUM BACKGROUND GLOW */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -90,7 +90,7 @@ export const AboutSection = () => {
         <div className="absolute bottom-[-80px] right-[-80px] w-[300px] h-[300px] bg-emerald-200/30 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="mx-auto w-full max-w-[88rem] px-0">
         {/* ASYMMETRICAL 2-COLUMN SPLIT GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 lg:mb-16">
           
